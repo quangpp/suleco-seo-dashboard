@@ -1,0 +1,69 @@
+:root{
+  --navy:#1F3864; --bg:#f4f6fa; --card:#fff; --ink:#1a1a1a; --muted:#6b7280;
+  --red:#a71d2a; --redbg:#fdeaea; --amber:#8a6100; --amberbg:#fff6e0;
+  --green:#1e7e34; --greenbg:#e6f4ea;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  padding-bottom:env(safe-area-inset-bottom);
+}
+header{
+  position:sticky;top:0;z-index:10;background:var(--navy);color:#fff;
+  padding:calc(env(safe-area-inset-top) + 12px) 16px 12px;
+}
+.bar{display:flex;align-items:center;justify-content:space-between}
+h1{margin:0;font-size:18px;font-weight:700}
+#refresh{
+  background:rgba(255,255,255,.15);border:0;color:#fff;font-size:20px;
+  width:40px;height:40px;border-radius:50%;cursor:pointer
+}
+#refresh.spin{animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.stamp{font-size:12px;opacity:.75;margin-top:4px}
+.stamp.stale{color:#ffd37a}
+
+main{padding:12px 12px 32px;max-width:720px;margin:0 auto}
+section{margin-bottom:20px}
+h2{font-size:13px;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);margin:0 0 8px}
+
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.tile{background:var(--card);border-radius:12px;padding:12px;box-shadow:0 1px 3px rgba(0,0,0,.07)}
+.tile .k{font-size:12px;color:var(--muted)}
+.tile .v{font-size:22px;font-weight:700;margin-top:2px}
+.tile .t{font-size:12px;margin-top:2px}
+.up{color:var(--green)} .down{color:var(--red)} .flat{color:var(--muted)}
+
+.alert{background:var(--card);border-radius:12px;padding:12px;margin-bottom:8px;border-left:4px solid}
+.alert.l1{border-color:var(--red);background:var(--redbg)}
+.alert.l2{border-color:var(--amber);background:var(--amberbg)}
+.alert.l3{border-color:var(--green);background:var(--greenbg)}
+.alert .subj{font-weight:700;word-break:break-word}
+.alert .verdict{font-size:14px;margin-top:2px}
+.alert .action{font-size:13px;color:#333;margin-top:6px;padding-top:6px;border-top:1px solid rgba(0,0,0,.08)}
+.kind{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.4px}
+
+table{width:100%;border-collapse:collapse;background:var(--card);border-radius:12px;overflow:hidden}
+th,td{padding:9px 10px;text-align:left;font-size:13px;border-bottom:1px solid #eef0f4}
+th{background:#eef1f7;color:var(--muted);font-size:11px;text-transform:uppercase}
+td.num{text-align:right;font-variant-numeric:tabular-nums}
+tr:last-child td{border-bottom:0}
+.u{word-break:break-all;font-size:12px}
+
+.empty{background:var(--card);border-radius:12px;padding:16px;color:var(--muted);text-align:center}
+/* !important vì .setup bên dưới có display:flex và khai báo sau — không có nó thì hộp nhập token
+   không bao giờ ẩn đi được, app kẹt vĩnh viễn ở màn hình kết nối. */
+.hidden{display:none !important}
+
+.setup{position:fixed;inset:0;background:rgba(15,23,42,.6);display:flex;align-items:center;padding:20px;z-index:50}
+.setup .card{background:#fff;border-radius:16px;padding:20px;width:100%;max-width:420px;margin:auto}
+.setup h2{color:var(--navy);font-size:18px;text-transform:none;letter-spacing:0;margin-bottom:8px}
+.setup p{font-size:13px;color:var(--muted)}
+.setup label{display:block;font-size:12px;font-weight:600;margin:12px 0 4px}
+.setup input{width:100%;padding:11px;border:1px solid #cbd2dd;border-radius:8px;font-size:15px}
+.setup button{
+  width:100%;margin-top:16px;padding:13px;background:var(--navy);color:#fff;
+  border:0;border-radius:8px;font-size:15px;font-weight:600
+}
+.err{color:var(--red);font-size:13px;min-height:18px}

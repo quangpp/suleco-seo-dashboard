@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1F3864">
+<title>SEO Suleco</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="bar">
+    <h1>SEO Suleco</h1>
+    <button id="refresh" title="Tải lại dữ liệu">↻</button>
+  </div>
+  <div id="stamp" class="stamp">Đang tải…</div>
+</header>
+
+<main id="app"></main>
+
+<!-- Màn hình nhập token, chỉ hiện lần đầu. Token KHÔNG nằm trong mã nguồn vì trang này công khai. -->
+<div id="setup" class="setup hidden">
+  <div class="card">
+    <h2>Kết nối lần đầu</h2>
+    <p>Dán <b>URL web app</b> và <b>token</b> lấy từ Google Sheet. Hai giá trị này chỉ lưu trên máy bạn.</p>
+    <label>URL web app (kết thúc bằng <code>/exec</code>)</label>
+    <input id="in-url" type="url" placeholder="https://script.google.com/macros/s/..../exec" autocomplete="off">
+    <label>Token</label>
+    <input id="in-token" type="text" placeholder="dán token" autocomplete="off">
+    <button id="save">Lưu & tải dữ liệu</button>
+    <p id="setup-err" class="err"></p>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
